@@ -59,7 +59,11 @@
   margin-bottom: 8px;
 }
 
-
+.btn-delete
+{
+  padding: 5px 10px;
+  font-size: 10px;
+}
 
 
 
