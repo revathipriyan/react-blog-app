@@ -4,7 +4,7 @@ import BlogList from './BlogList';
 const Home = () => {
     const [blogs,setBlogs] = useState(null);
     const [isPending,setIsPending] = useState(true);
-
+    const [error, setError] = useState(null);
 
 
     
@@ -14,14 +14,19 @@ const Home = () => {
             .then(res => {
                 return res.json();
             }).then((data) => {
-                console.log(data);
                 setBlogs(data);
+                setError(null);
                 setIsPending(false);
-            });
+            })
+            .catch(err => {
+                setError(err.message);
+                setIsPending(false);
+            })
     });
 
     return ( 
         <div className="home">
+            { error && <div>{error}</div>}
             { isPending && <div>Loading ....</div>}
             {blogs && <BlogList blogs={blogs} title="All blogs"></BlogList>}
         </div>
