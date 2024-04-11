@@ -107,7 +107,14 @@
   
 }
 
-
+.blog-details button{
+  background-color: red;
+  color: white;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 
 
